@@ -6,6 +6,16 @@
 <title>Eoin Grant</title>
 <meta name="description" content="Eoin Grant — Final-year BSc Finance student at Queen's University Belfast, ex-Susquehanna International Group (SIG) Trading Operations Intern." />
 
+<!-- Set theme before paint to avoid a flash of the wrong mode -->
+<script>
+  (function () {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="alternate icon" type="image/png" href="content/logos/head.png" />
@@ -36,11 +46,11 @@
           mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
         },
         colors: {
-          paper: '#fafaf9',
-          ink: '#0a0a0a',
-          muted: '#6b6b6b',
-          line: '#e7e5e4',
-          accent: '#1e3a8a',
+          paper: 'var(--paper)',
+          ink: 'var(--ink)',
+          muted: 'var(--muted)',
+          line: 'var(--line)',
+          accent: 'var(--accent)',
         }
       }
     }
@@ -49,20 +59,65 @@
 
 <style>
   html { scroll-behavior: smooth; }
+
+  /* Theme palettes — every colour token flows from these variables,
+     so toggling .dark on <html> re-themes the whole site automatically. */
+  :root {
+    --paper: #fafaf9;
+    --ink: #0a0a0a;
+    --muted: #6b6b6b;
+    --line: #e7e5e4;
+    --accent: #1e3a8a;
+    --card: #ffffff;
+    --tool-text: #404040;
+    --avatar: #e7e5e4;
+    --track: #f0eeec;
+    --badge-closed-bg: #f5f5f4;
+    --nav-bg: rgba(250, 250, 249, 0.85);
+    --accent-tint: rgba(30, 58, 138, 0.08);
+    --accent-tint-border: rgba(30, 58, 138, 0.25);
+    --accent-glow: rgba(30, 58, 138, 0.18);
+    --accent-shadow: rgba(30, 58, 138, 0.35);
+  }
+  html.dark {
+    --paper: #0e0e0d;
+    --ink: #ededec;
+    --muted: #9a9a96;
+    --line: #2a2a27;
+    --accent: #9db8ff;
+    --card: #18181a;
+    --tool-text: #c4c4c0;
+    --avatar: #2a2a27;
+    --track: #2a2a27;
+    --badge-closed-bg: #222220;
+    --nav-bg: rgba(14, 14, 13, 0.85);
+    --accent-tint: rgba(157, 184, 255, 0.12);
+    --accent-tint-border: rgba(157, 184, 255, 0.30);
+    --accent-glow: rgba(157, 184, 255, 0.25);
+    --accent-shadow: rgba(157, 184, 255, 0.30);
+  }
+
   body {
-    background: #fafaf9;
-    color: #0a0a0a;
+    background: var(--paper);
+    color: var(--ink);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Smooth, content-first nav */
   nav.scrolled {
-    background: rgba(250, 250, 249, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #e7e5e4;
+    border-bottom: 1px solid var(--line);
   }
+
+  /* Theme toggle icon swap */
+  #theme-toggle { display: inline-flex; align-items: center; cursor: pointer; background: none; border: 0; padding: 0; color: inherit; }
+  .theme-icon-dark { display: none; }
+  html.dark .theme-icon-dark { display: inline; }
+  html.dark .theme-icon-light { display: none; }
 
   /* Subtle link underline animation */
   .link-underline {
@@ -88,9 +143,9 @@
     font-size: 0.85rem;
     letter-spacing: -0.02em;
     flex-shrink: 0;
-    background: #ffffff;
-    border: 1px solid #e7e5e4;
-    color: #0a0a0a;
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--ink);
     overflow: hidden;
   }
   .logo-box img {
@@ -103,16 +158,16 @@
   .tool {
     display: inline-block;
     padding: 0.25rem 0.7rem;
-    border: 1px solid #e7e5e4;
+    border: 1px solid var(--line);
     border-radius: 6px;
     font-size: 0.8rem;
-    color: #404040;
-    background: #ffffff;
+    color: var(--tool-text);
+    background: var(--card);
     transition: border-color 0.2s, color 0.2s;
   }
   .tool:hover {
-    border-color: #0a0a0a;
-    color: #0a0a0a;
+    border-color: var(--ink);
+    color: var(--ink);
   }
 
   /* Section heading */
@@ -121,13 +176,13 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #6b6b6b;
+    color: var(--muted);
     margin-bottom: 1.75rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e7e5e4;
+    border-bottom: 1px solid var(--line);
   }
   .section-num {
-    color: #1e3a8a;
+    color: var(--accent);
     font-weight: 700;
     margin-right: 0.6em;
   }
@@ -144,11 +199,11 @@
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background-color: #e7e5e4;
+    background-color: var(--avatar);
     background-image: url('content/logos/head.png');
     background-size: cover;
     background-position: center;
-    border: 1px solid #e7e5e4;
+    border: 1px solid var(--line);
     margin-bottom: 1.5rem;
   }
 
@@ -160,11 +215,11 @@
     border-radius: 12px;
   }
   .exp-row:hover .logo-box {
-    border-color: #1e3a8a;
-    box-shadow: 0 6px 18px -8px rgba(30, 58, 138, 0.35);
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px -8px var(--accent-shadow);
   }
   .exp-row:hover h3 {
-    color: #1e3a8a;
+    color: var(--accent);
   }
   .exp-row h3 {
     transition: color 0.25s ease;
@@ -186,8 +241,8 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #1e3a8a;
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.18);
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
   }
 
   /* Portfolio — open/closed trade badges */
@@ -203,38 +258,38 @@
     vertical-align: middle;
   }
   .port-badge.open {
-    color: #1e3a8a;
-    background: rgba(30, 58, 138, 0.08);
-    border: 1px solid rgba(30, 58, 138, 0.25);
+    color: var(--accent);
+    background: var(--accent-tint);
+    border: 1px solid var(--accent-tint-border);
   }
   .port-badge.closed {
-    color: #6b6b6b;
-    background: #f5f5f4;
-    border: 1px solid #e7e5e4;
+    color: var(--muted);
+    background: var(--badge-closed-bg);
+    border: 1px solid var(--line);
   }
 
   /* Portfolio — long-term ETF allocation cards */
   .port-etf-card {
-    border: 1px solid #e7e5e4;
+    border: 1px solid var(--line);
     border-radius: 10px;
     padding: 1rem 1.1rem;
-    background: #ffffff;
+    background: var(--card);
     transition: border-color 0.2s;
   }
   .port-etf-card:hover {
-    border-color: #1e3a8a;
+    border-color: var(--accent);
   }
   .port-etf-track {
     height: 6px;
     border-radius: 999px;
-    background: #f0eeec;
+    background: var(--track);
     overflow: hidden;
     margin-top: 0.7rem;
   }
   .port-etf-bar {
     height: 6px;
     border-radius: 999px;
-    background: #1e3a8a;
+    background: var(--accent);
   }
 </style>
 </head>
@@ -259,6 +314,12 @@
       <a href="mailto:eoingrant911@gmail.com" aria-label="Email" class="hover:text-ink transition">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="hover:text-ink transition">
+        <!-- moon: shown in light mode (click → go dark) -->
+        <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <!-- sun: shown in dark mode (click → go light) -->
+        <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -738,7 +799,44 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
+
+  /* Dark mode toggle (initial theme already applied in <head>) */
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  /* ---- GoatCounter custom events (privacy-friendly, anonymous) ---- */
+  function gcEvent(path, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: path, title: title, event: true });
+    }
+  }
+
+  // 1. Track which research PDFs get opened
+  document.querySelectorAll('a[href$=".pdf"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const file = a.getAttribute('href').split('/').pop();
+      gcEvent('pdf-open-' + file, 'PDF opened: ' + file);
+    });
+  });
+
+  // 2. Track which sections a visitor actually scrolls to (once each)
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        gcEvent('section-' + id, 'Viewed section: ' + id);
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 </script>
+
+<!-- GoatCounter analytics (no cookies, no personal data) -->
+<script data-goatcounter="https://eoingrant.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
