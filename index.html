@@ -295,8 +295,9 @@
 </head>
 <body class="font-sans">
 
-<!-- NAVIGATION -->
-<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
+<!-- HEADER: nav + live market ticker -->
+<header class="fixed top-0 left-0 right-0 z-50">
+<nav id="nav" class="transition-all duration-200">
   <div class="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="#home" class="text-sm font-semibold tracking-tight">Eoin Grant</a>
     <div class="flex items-center gap-6 text-sm text-muted">
@@ -323,9 +324,14 @@
     </div>
   </div>
 </nav>
+<!-- Live market ticker (TradingView free embed, theme-synced) -->
+<div id="ticker-bar" style="background: var(--paper); border-bottom: 1px solid var(--line); min-height: 44px;">
+  <div id="tv-ticker" class="tradingview-widget-container"></div>
+</div>
+</header>
 
 <!-- HERO -->
-<section id="home" class="pt-32 pb-10 px-6">
+<section id="home" class="pt-44 pb-10 px-6">
   <div class="max-w-2xl mx-auto">
     <div class="hero-avatar" aria-label="Eoin Grant"></div>
 
@@ -800,10 +806,43 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
+  /* Live market ticker (TradingView) — rebuilt on theme change so it matches */
+  function loadTicker(theme) {
+    const container = document.getElementById('tv-ticker');
+    container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+    s.textContent = JSON.stringify({
+      symbols: [
+        { proName: "FOREXCOM:SPXUSD", title: "S&P 500" },
+        { proName: "FOREXCOM:NSXUSD", title: "Nasdaq 100" },
+        { proName: "FOREXCOM:UKXGBP", title: "FTSE 100" },
+        { proName: "TVC:NI225",       title: "Nikkei 225" },
+        { proName: "KRX:KOSPI",       title: "KOSPI" },
+        { proName: "TVC:HSI",         title: "Hang Seng" },
+        { proName: "TSE:5332",        title: "TOTO" },
+        { proName: "NASDAQ:AAPL",     title: "Apple" },
+        { proName: "FX:EURUSD",       title: "EUR/USD" },
+        { proName: "TVC:GOLD",        title: "Gold" }
+      ],
+      showSymbolLogo: true,
+      isTransparent: true,
+      displayMode: "adaptive",
+      colorTheme: theme,
+      locale: "en"
+    });
+    container.appendChild(s);
+  }
+  const themeNow = () => document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  loadTicker(themeNow());
+
   /* Dark mode toggle (initial theme already applied in <head>) */
   document.getElementById('theme-toggle').addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    loadTicker(isDark ? 'dark' : 'light');
   });
 
   /* ---- GoatCounter custom events (privacy-friendly, anonymous) ---- */
