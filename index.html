@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eoin Grant — Finance & Capital Markets</title>
+<meta name="description" content="Eoin Grant — Final-year BSc Finance student at Queen's University Belfast, ex-Susquehanna International Group (SIG) Trading Operations Intern." />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="alternate icon" type="image/png" href="content/logos/head.png" />
+
+<!-- Open Graph / social preview (shown when the link is shared on LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Eoin Grant — Finance & Capital Markets" />
+<meta property="og:description" content="Final-year BSc Finance student at Queen's University Belfast, ex-SIG Trading Operations Intern. Capital-markets fluency meets hands-on Python/SQL." />
+<meta property="og:url" content="https://grante-54.github.io/" />
+<meta property="og:image" content="https://grante-54.github.io/content/logos/head.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Eoin Grant — Finance & Capital Markets" />
+<meta name="twitter:description" content="Final-year BSc Finance student at QUB, ex-SIG Trading Operations Intern." />
+<meta name="twitter:image" content="https://grante-54.github.io/content/logos/head.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          serif: ['Fraunces', 'Georgia', 'serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          paper: '#fafaf9',
+          ink: '#0a0a0a',
+          muted: '#6b6b6b',
+          line: '#e7e5e4',
+          accent: '#1e3a8a',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #fafaf9;
+    color: #0a0a0a;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Smooth, content-first nav */
+  nav.scrolled {
+    background: rgba(250, 250, 249, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e7e5e4;
+  }
+
+  /* Subtle link underline animation */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Logo boxes — either initials text or an <img> child */
+  .logo-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #e7e5e4;
+    color: #0a0a0a;
+    overflow: hidden;
+  }
+  .logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Toolkit chips — minimal, no fill */
+  .tool {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid #e7e5e4;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #404040;
+    background: #ffffff;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tool:hover {
+    border-color: #0a0a0a;
+    color: #0a0a0a;
+  }
+
+  /* Section heading */
+  .section-h {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e7e5e4;
+  }
+  .section-num {
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-right: 0.6em;
+  }
+
+  /* Serif display */
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero avatar — placeholder grey circle if image missing */
+  .hero-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #e7e5e4;
+    background-image: url('content/logos/head.png');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #e7e5e4;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Experience row hover */
+  .exp-row {
+    transition: transform 0.25s ease;
+    padding: 4px;
+    margin: -4px;
+    border-radius: 12px;
+  }
+  .exp-row:hover .logo-box {
+    border-color: #1e3a8a;
+    box-shadow: 0 6px 18px -8px rgba(30, 58, 138, 0.35);
+  }
+  .exp-row:hover h3 {
+    color: #1e3a8a;
+  }
+  .exp-row h3 {
+    transition: color 0.25s ease;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Status dot */
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.18);
+  }
+
+  /* Portfolio — open/closed trade badges */
+  .port-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .port-badge.open {
+    color: #1e3a8a;
+    background: rgba(30, 58, 138, 0.08);
+    border: 1px solid rgba(30, 58, 138, 0.25);
+  }
+  .port-badge.closed {
+    color: #6b6b6b;
+    background: #f5f5f4;
+    border: 1px solid #e7e5e4;
+  }
+
+  /* Portfolio — long-term ETF allocation cards */
+  .port-etf-card {
+    border: 1px solid #e7e5e4;
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    background: #ffffff;
+    transition: border-color 0.2s;
+  }
+  .port-etf-card:hover {
+    border-color: #1e3a8a;
+  }
+  .port-etf-track {
+    height: 6px;
+    border-radius: 999px;
+    background: #f0eeec;
+    overflow: hidden;
+    margin-top: 0.7rem;
+  }
+  .port-etf-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: #1e3a8a;
+  }
+</style>
+</head>
+<body class="font-sans">
+
+<!-- NAVIGATION -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
+  <div class="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#home" class="text-sm font-semibold tracking-tight">Eoin Grant</a>
+    <div class="flex items-center gap-6 text-sm text-muted">
+      <a href="#about" class="link-underline hover:text-ink">About</a>
+      <a href="#experience" class="link-underline hover:text-ink">Experience</a>
+      <a href="#projects" class="link-underline hover:text-ink hidden sm:inline">Projects</a>
+      <a href="#portfolio" class="link-underline hover:text-ink hidden sm:inline">Portfolio</a>
+      <span class="text-line">|</span>
+      <a href="https://github.com/grante-54" target="_blank" rel="noopener" aria-label="GitHub" class="hover:text-ink transition">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.41 1.02.01 2.04.14 3 .41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/eoin-grant-43118623a/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-ink transition">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.37 4.28 5.46v6.28zM5.34 7.43a2.06 2.06 0 11-.01-4.12 2.06 2.06 0 01.01 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.44C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="mailto:eoingrant911@gmail.com" aria-label="Email" class="hover:text-ink transition">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="pt-32 pb-10 px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="hero-avatar" aria-label="Eoin Grant"></div>
+
+    <div class="inline-flex items-center gap-2 mb-8 text-xs text-muted font-mono">
+      <span class="status-dot"></span>
+      Committed to KPMG — Financial Instruments (Valuations) Grad
+    </div>
+
+    <h1 class="display text-5xl md:text-6xl leading-[1.05] mb-5">
+      Eoin Grant
+    </h1>
+    <p class="text-xl text-muted mb-8 font-medium">Finance student. Trading-ops engineer.</p>
+
+    <p class="text-base text-ink leading-relaxed mb-4">
+      I'm a final-year BSc Finance student at Queen's University Belfast, just back from a 12-month placement at <a href="#experience" class="underline decoration-line decoration-1 underline-offset-4 hover:decoration-ink">Susquehanna International Group</a> in Dublin — one of the world's leading quantitative proprietary trading firms.
+    </p>
+    <p class="text-base text-ink leading-relaxed">
+      I combine capital-markets fluency with hands-on Python/SQL — the kind of work that bridges the trader and the engineer. Long-term, my interests lie in front-office and/or markets-facing roles.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">01</span>About</div>
+    <p class="text-ink leading-relaxed mb-4">
+      Across 12 months at SIG, I rotated through <span class="font-medium">Options Trade Support</span>, <span class="font-medium">ETF Trade Support</span>, and <span class="font-medium">Settlements</span>. I built Python/SQL tooling that estimated potential rebates across 1,000+ listed derivatives on 6 European exchanges, automated market-making analytics, and developed a PyQt GUI adopted into the firm's evening-exercise workflow.
+    </p>
+    <p class="text-ink leading-relaxed">
+      Before SIG, I led equity research as Sector Head for Consumer Discretionary at the Queen's Student Managed Fund, and served as CFO of Queen's Consulting Society — securing £13k in sponsorship and growing membership to 180+. I'm also 1 of 9 selected for QUB's Investment Banking Mentor Scheme, mentored by a BlackRock VP.
+    </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">02</span>Experience</div>
+
+    <div class="space-y-10">
+
+      <!-- KPMG (Incoming) -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/kpmg.png" alt="KPMG" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Financial Instruments — Valuations Graduate</h3>
+            <span class="text-xs text-muted font-mono">Incoming Sep 2026</span>
+          </div>
+          <p class="text-sm text-muted mb-2">KPMG · Dublin</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Joining the Financial Instruments team within Valuations — pricing and reviewing complex derivatives, structured products, and illiquid securities for audit and advisory clients.
+          </p>
+        </div>
+      </div>
+
+      <!-- SIG -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/sig.png" alt="SIG" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Trading Operations Intern</h3>
+            <span class="text-xs text-muted font-mono">Jun 2024 — Jun 2025</span>
+          </div>
+          <p class="text-sm text-muted mb-2">Susquehanna International Group · Dublin</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Supported daily trading ops across Options, ETF, and Settlements desks, partnering with 20+ market makers. Built a Python/SQL rebate-estimation framework spanning 1,000+ derivatives on 6 European exchanges. Shipped a PyQt early-exercise reconciliation GUI for MEFF, ICE, and CEDX — adopted by the team and reviewed by TechOps.
+          </p>
+        </div>
+      </div>
+
+      <!-- EHL -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/ehl.png" alt="EHL Experiences" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Finance Intern</h3>
+            <span class="text-xs text-muted font-mono">May 2026 — Present</span>
+          </div>
+          <p class="text-sm text-muted mb-2">EHL Experiences · Dublin</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Part-time finance role supporting commercial reporting and management information within a fast-growing hospitality group.
+          </p>
+        </div>
+      </div>
+
+      <!-- QUB Research -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/qub.png" alt="Queen's University Belfast" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Research Assistant</h3>
+            <span class="text-xs text-muted font-mono">Jan 2026 — Mar 2026</span>
+          </div>
+          <p class="text-sm text-muted mb-2">Queen's University Belfast · Remote</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Digitised archival stock-price data from the Stock Exchange Daily Official List using Python and Google Gemini OCR, supporting academic research on preference-share voting rights and returns.
+          </p>
+        </div>
+      </div>
+
+      <!-- QSMF -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/qsmf.png" alt="Queen's Student Managed Fund" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Sector Head — Consumer Discretionary</h3>
+            <span class="text-xs text-muted font-mono">Sep 2022 — Jun 2024</span>
+          </div>
+          <p class="text-sm text-muted mb-2">Queen's Student Managed Fund · Belfast</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Led junior analysts through equity research and stock pitches; represented the fund at sponsor pitch events. Built fluency with the Bloomberg Terminal and fundamental valuation.
+          </p>
+        </div>
+      </div>
+
+      <!-- QCS -->
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/qcs.png" alt="Queen's Consulting Society" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Chief Financial Officer</h3>
+            <span class="text-xs text-muted font-mono">Jun 2023 — Jun 2024</span>
+          </div>
+          <p class="text-sm text-muted mb-2">Queen's Consulting Society · Belfast</p>
+          <p class="text-sm text-ink leading-relaxed">
+            Secured £13k in sponsorship (incl. Grant Thornton), grew membership to 180+, and delivered 4+ flagship events with 100+ attendees — including the society's inaugural consulting case competition.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">03</span>Selected Projects</div>
+
+    <div class="space-y-8">
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">
+            <a href="content/final_research_paper.pdf" target="_blank" rel="noopener" class="link-underline">Share Repurchases &amp; Agency Costs — FTSE 350 ↗</a>
+          </h3>
+          <span class="text-xs text-muted font-mono">QUB FIN3016 · Research</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Event study of 84 FTSE 350 buyback announcements (2020–2025), testing Jensen's free-cash-flow hypothesis via market-model CARs and cross-sectional regressions.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">
+            <a href="content/TOTO_Equity_Report.pdf" target="_blank" rel="noopener" class="link-underline">TOTO Ltd (5332 JT) — Equity Initiation, BUY ↗</a>
+          </h3>
+          <span class="text-xs text-muted font-mono">QUB FIN3013 · Equity Research</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          12-page initiation with a ¥7,303 sum-of-the-parts DCF price target (+27%). Core thesis: the market misprices TOTO as a sanitary-ware maker, overlooking its Advanced Ceramics arm — the sole qualified electrostatic-chuck supplier for Lam Research's 3D-NAND cryogenic etch — which earns ~40% of operating profit at a 40%+ margin. Catalysed by Palliser Capital's activist Value Enhancement Plan; full DCF, relative valuation, and bear/base/bull scenario analysis.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">
+            <a href="content/debt_report_apple_final.pdf" target="_blank" rel="noopener" class="link-underline">Apple Inc (AAPL) — Debt &amp; Credit Analysis ↗</a>
+          </h3>
+          <span class="text-xs text-muted font-mono">QUB FIN3020 · Debt Research</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Credit study of Apple's ~$83bn senior-unsecured bond stack: maturity-profile and refinancing-risk analysis, USD yield and Z-spread curves benchmarked against the US AAA composite, and peer leverage analysis (Net Debt/EBITDA −0.45x, FCF/Debt 150%) alongside 5Y CDS dynamics through the April 2025 tariff shock.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">
+            <a href="content/documentation.pdf" target="_blank" rel="noopener" class="link-underline">Index-Tracking ETF Analysis GUI ↗</a>
+          </h3>
+          <span class="text-xs text-muted font-mono">QUB FIN3028 · Python, PyQt5</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Modular desktop application that pulls live yfinance data, computes synthetic NAV, premium/discount, tracking error, and liquidity metrics, then generates a decision-tree trading signal for on-screen creation/redemption opportunities. JSON-driven settings, matplotlib visualisations, and export to Excel / clipboard / text.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">Rebate Estimation Engine</h3>
+          <span class="text-xs text-muted font-mono">SIG · Python, SQL</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Modelled LP rebate schemes across 1,000+ derivatives on 6 exchanges, FX-normalised to USD, to direct trader effort toward the highest-value products.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">Market-Making Analytics</h3>
+          <span class="text-xs text-muted font-mono">SIG · Python, Grafana</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Daily MM performance reporting suite (MEFF, Eurex, CEDX) with live Grafana monitor and trader-level feedback loops.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">Exercise Reconciliation GUI</h3>
+          <span class="text-xs text-muted font-mono">SIG · PyQt</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          PyQt application unifying evening options exercises, assignment flagging, and position queries — adopted by the team and reviewed by TechOps.
+        </p>
+      </div>
+
+      <div>
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+          <h3 class="text-base font-semibold text-ink">Historical Equity Data Digitisation</h3>
+          <span class="text-xs text-muted font-mono">QUB Research · Python, Gemini OCR</span>
+        </div>
+        <p class="text-sm text-ink leading-relaxed">
+          Python + Google Gemini OCR pipeline transforming archival SEDOL records into a structured dataset for academic finance research.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">04</span>Portfolio &amp; Positioning</div>
+
+    <p class="text-ink leading-relaxed mb-8">
+      How I think about markets — a high-conviction single-name idea alongside a diversified, low-cost ETF core. Position sizing is withheld; this is about process and thesis, not personal balances.
+    </p>
+
+    <!-- High-conviction trades -->
+    <div class="text-xs text-muted font-mono mb-3">High-conviction idea</div>
+    <div class="overflow-x-auto -mx-1 mb-12">
+      <table class="w-full text-sm border-collapse min-w-[380px]">
+        <thead>
+          <tr class="text-xs text-muted font-mono text-left border-b border-line">
+            <th class="py-2 pr-3 font-medium">Ticker</th>
+            <th class="py-2 px-3 font-medium">Thesis</th>
+            <th class="py-2 pl-3 font-medium text-right">Return</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-line">
+
+          <tr>
+            <td class="py-3 pr-3 align-top whitespace-nowrap">
+              <span class="font-mono font-medium text-ink">TOTDY</span>
+              <span class="port-badge open">Open</span>
+            </td>
+            <td class="py-3 px-3 align-top text-ink leading-snug">TOTO Ltd — a hidden semiconductor play misclassified as a toilet maker. Its Advanced Ceramics arm is the sole qualified electrostatic-chuck supplier for Lam Research's 3D-NAND cryogenic etch, earning ~40% of operating profit at a 40%+ margin. My sum-of-the-parts DCF and Palliser's activist plan point to a re-rating. <a href="content/TOTO_Equity_Report.pdf" target="_blank" rel="noopener" class="text-accent link-underline whitespace-nowrap">Read my initiation ↗</a></td>
+            <td class="py-3 pl-3 align-top text-right font-mono" style="color:#15803d">+55%</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Long-term ETF core -->
+    <div class="text-xs text-muted font-mono mb-3">Long-term core — ETF allocation</div>
+    <div class="grid sm:grid-cols-2 gap-3">
+
+      <div class="port-etf-card">
+        <div class="flex items-baseline justify-between">
+          <span class="font-mono text-sm font-medium text-ink">EMIM</span>
+          <span class="font-mono text-sm text-accent">28%</span>
+        </div>
+        <div class="text-xs text-muted mt-0.5">iShares Core MSCI EM IMI</div>
+        <div class="port-etf-track"><div class="port-etf-bar" style="width:28%"></div></div>
+      </div>
+
+      <div class="port-etf-card">
+        <div class="flex items-baseline justify-between">
+          <span class="font-mono text-sm font-medium text-ink">IWDA</span>
+          <span class="font-mono text-sm text-accent">28%</span>
+        </div>
+        <div class="text-xs text-muted mt-0.5">iShares Core MSCI World</div>
+        <div class="port-etf-track"><div class="port-etf-bar" style="width:28%"></div></div>
+      </div>
+
+      <div class="port-etf-card">
+        <div class="flex items-baseline justify-between">
+          <span class="font-mono text-sm font-medium text-ink">VWRP</span>
+          <span class="font-mono text-sm text-accent">28%</span>
+        </div>
+        <div class="text-xs text-muted mt-0.5">Vanguard FTSE All-World (Acc)</div>
+        <div class="port-etf-track"><div class="port-etf-bar" style="width:28%"></div></div>
+      </div>
+
+      <div class="port-etf-card">
+        <div class="flex items-baseline justify-between">
+          <span class="font-mono text-sm font-medium text-ink">WSML</span>
+          <span class="font-mono text-sm text-accent">11%</span>
+        </div>
+        <div class="text-xs text-muted mt-0.5">iShares MSCI World Small Cap</div>
+        <div class="port-etf-track"><div class="port-etf-bar" style="width:11%"></div></div>
+      </div>
+
+      <div class="port-etf-card">
+        <div class="flex items-baseline justify-between">
+          <span class="font-mono text-sm font-medium text-ink">VAGS</span>
+          <span class="font-mono text-sm text-accent">5%</span>
+        </div>
+        <div class="text-xs text-muted mt-0.5">Vanguard Global Aggregate Bond</div>
+        <div class="port-etf-track"><div class="port-etf-bar" style="width:5%"></div></div>
+      </div>
+
+    </div>
+
+    <p class="text-xs text-muted leading-relaxed mt-8 pt-4 border-t border-line">
+      Illustrative and for demonstration only — not investment advice, not a solicitation, and not a complete record of holdings. Figures may be rounded or simplified.
+    </p>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="toolkit" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">05</span>Toolkit</div>
+
+    <div class="space-y-6">
+      <div>
+        <div class="text-xs text-muted font-mono mb-3">Programming &amp; Data</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tool">Python</span>
+          <span class="tool">pandas</span>
+          <span class="tool">SQL</span>
+          <span class="tool">Oracle</span>
+          <span class="tool">MySQL</span>
+          <span class="tool">PyQt</span>
+          <span class="tool">VBA</span>
+          <span class="tool">Splunk</span>
+          <span class="tool">Grafana</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs text-muted font-mono mb-3">Markets</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tool">Bloomberg Terminal</span>
+          <span class="tool">Derivatives</span>
+          <span class="tool">ETFs</span>
+          <span class="tool">Market Making</span>
+          <span class="tool">PnL Reconciliation</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs text-muted font-mono mb-3">Professional</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tool">Fundamental Analysis</span>
+          <span class="tool">Stock Pitching</span>
+          <span class="tool">Excel (Advanced)</span>
+          <span class="tool">Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">06</span>Education</div>
+
+    <div class="space-y-10">
+
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/qub.png" alt="Queen's University Belfast" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">Queen's University Belfast</h3>
+            <span class="text-xs text-muted font-mono">2022 — 2026</span>
+          </div>
+          <p class="text-sm text-muted mb-2">BSc Finance (with a year in industry)</p>
+          <ul class="text-sm text-ink leading-relaxed space-y-1">
+            <li>— 81% overall average</li>
+            <li>— Best Student in Finance: Level 1 &amp; Level 2</li>
+            <li>— Foundation Scholarship recipient</li>
+            <li>— IB Mentor Scheme: 1 of 9, mentored by BlackRock VP</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-5 exp-row">
+        <div class="logo-box"><img src="content/logos/scc.png" alt="St Colman's College" /></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+            <h3 class="text-base font-semibold text-ink">St Colman's College, Newry</h3>
+            <span class="text-xs text-muted font-mono">2015 — 2022</span>
+          </div>
+          <p class="text-sm text-muted mb-2">A-Levels &amp; GCSEs</p>
+          <ul class="text-sm text-ink leading-relaxed space-y-1">
+            <li>— A-Levels: Biology &amp; Chemistry (A*), Maths &amp; Accounting (A)</li>
+            <li>— Award for Exceptional Academic Performance</li>
+            <li>— GCSE: 5 A*s, 4 As, 1 B (Further Maths A*)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-8 px-6">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="section-h"><span class="section-num">07</span>Contact</div>
+    <p class="text-ink leading-relaxed mb-6">
+      Always happy to talk markets, derivatives, exciting opportunities — or to share advice with anyone navigating placements and grad apps.
+    </p>
+
+    <div class="grid grid-cols-2 gap-y-5 gap-x-6 text-sm">
+      <div>
+        <div class="text-xs text-muted font-mono mb-1">Email</div>
+        <a href="mailto:eoingrant911@gmail.com" class="text-ink link-underline break-all">eoingrant911@gmail.com</a>
+      </div>
+      <div>
+        <div class="text-xs text-muted font-mono mb-1">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/eoin-grant-43118623a/" target="_blank" rel="noopener" class="text-ink link-underline">/in/eoin-grant</a>
+      </div>
+      <div>
+        <div class="text-xs text-muted font-mono mb-1">GitHub</div>
+        <a href="https://github.com/grante-54" target="_blank" rel="noopener" class="text-ink link-underline">grante-54</a>
+      </div>
+      <div>
+        <div class="text-xs text-muted font-mono mb-1">Location</div>
+        <span class="text-ink">Belfast, NI / Dublin, IE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 px-6 mt-8 border-t border-line">
+  <div class="max-w-2xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-muted font-mono">
+    <div>© <span id="year"></span> Eoin Grant</div>
+    <div class="flex gap-5">
+      <a href="#home" class="hover:text-ink transition">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#ffffff"/>
+  <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#e7e5e4" stroke-width="3"/>
+  <text x="50" y="54" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="46" font-weight="700" letter-spacing="-3" fill="#1e3a8a"
+        text-anchor="middle" dominant-baseline="central">EG</text>
+</svg>
