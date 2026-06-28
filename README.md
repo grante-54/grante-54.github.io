@@ -2,7 +2,7 @@
 
 Personal portfolio site for Eoin Grant. Plain static HTML + Tailwind (CDN) + vanilla JS. No build step.
 
-**Live:** https://grante-54.github.io
+**Live:** https://eoingrant.com
 
 📖 **Want to build one like it?** See **[TUTORIAL.md](TUTORIAL.md)** — a full step-by-step walkthrough of how this site was made (design system, dark mode, social previews, live ticker, analytics, and free hosting).
 
