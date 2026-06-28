@@ -293,6 +293,29 @@
     border-radius: 999px;
     background: var(--accent);
   }
+
+  /* Reading list — book covers */
+  .book-cover {
+    width: 56px;
+    height: 84px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--track);
+    border: 1px solid var(--line);
+    box-shadow: 0 5px 16px -6px rgba(0, 0, 0, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .reading-row:hover .book-cover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.35);
+  }
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 </style>
 </head>
 <body class="font-sans">
@@ -766,32 +789,41 @@
   <div class="max-w-2xl mx-auto reveal">
     <div class="section-h"><span class="section-num">07</span>Reading List</div>
     <p class="text-ink leading-relaxed mb-6">
-      A few books shaping how I think about markets, risk, and decision-making. <span class="text-muted">(Placeholders — swap in your own.)</span>
+      A few books shaping how I think about markets, risk, and decision-making — plus the odd one purely for the craic.
     </p>
 
-    <div class="space-y-5">
-      <div>
-        <div class="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 class="text-base font-semibold text-ink">The Intelligent Investor</h3>
-          <span class="text-xs text-muted font-mono">Benjamin Graham</span>
+    <div class="space-y-6">
+      <div class="flex gap-4 reading-row">
+        <div class="book-cover"><img src="content/logos/in_this_economy.png" alt="In This Economy? — book cover" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-base font-semibold text-ink">In This Economy? How Money and Markets Really Work</h3>
+            <span class="text-xs text-muted font-mono">Kyla Scanlon</span>
+          </div>
+          <p class="text-sm text-ink leading-relaxed">A sharp, accessible guide to how money, markets, and the wider economy actually connect.</p>
         </div>
-        <p class="text-sm text-ink leading-relaxed">The foundational text on value investing and margin of safety.</p>
       </div>
 
-      <div>
-        <div class="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 class="text-base font-semibold text-ink">Market Wizards</h3>
-          <span class="text-xs text-muted font-mono">Jack D. Schwager</span>
+      <div class="flex gap-4 reading-row">
+        <div class="book-cover"><img src="content/logos/superforecasting.png" alt="Superforecasting — book cover" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-base font-semibold text-ink">Superforecasting: The Art and Science of Prediction</h3>
+            <span class="text-xs text-muted font-mono">Philip Tetlock &amp; Dan Gardner</span>
+          </div>
+          <p class="text-sm text-ink leading-relaxed">On making calibrated, probabilistic forecasts — base rates, updating on evidence, and why most predictions fail.</p>
         </div>
-        <p class="text-sm text-ink leading-relaxed">Interviews with top traders on edge, discipline, and managing risk.</p>
       </div>
 
-      <div>
-        <div class="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 class="text-base font-semibold text-ink">Against the Gods</h3>
-          <span class="text-xs text-muted font-mono">Peter L. Bernstein</span>
+      <div class="flex gap-4 reading-row">
+        <div class="book-cover"><img src="content/logos/golf_is_not_a_game_of_perfect.png" alt="Golf Is Not a Game of Perfect — book cover" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-base font-semibold text-ink">Golf Is Not a Game of Perfect</h3>
+            <span class="text-xs text-muted font-mono">Dr Bob Rotella</span>
+          </div>
+          <p class="text-sm text-ink leading-relaxed">A sports-psychology classic on confidence, focus, and performing under pressure — lessons that travel well beyond the course.</p>
         </div>
-        <p class="text-sm text-ink leading-relaxed">The history of risk — and how humanity learned to measure and price it.</p>
       </div>
     </div>
   </div>
